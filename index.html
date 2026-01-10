@@ -1,120 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roc's Stone Repair & Restoration</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roc's Stone Repair & Restoration</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
-        }
+<style>
+/* ----------------- Body & Background ----------------- */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background-image: url('images1/stone-bg.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: #333;
+}
 
-        header {
-            background: #2c2c2c;
-            color: #fff;
-            padding: 30px 20px;
-            text-align: center;
-        }
+/* Overlay to darken background slightly */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.2);
+    z-index: -1;
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-        }
+/* ----------------- Header ----------------- */
+header {
+    text-align: center;
+    padding: 40px 20px;
+    background: #fff;
+}
 
-        header p {
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
+header img.logo {
+    max-width: 390px; /* 30% bigger */
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
 
-        section {
-            padding: 40px 20px;
-            max-width: 1000px;
-            margin: auto;
-            background: #fff;
-            margin-bottom: 20px;
-        }
+header .tagline {
+    color: #000;
+    font-size: 1.2em;
+    margin-top: 12px;
+    font-weight: 600;
+}
 
-        h2 {
-            color: #2c2c2c;
-            margin-bottom: 15px;
-        }
+/* ----------------- Sections ----------------- */
+section {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 20px auto;
+    background: #fff; /* white section */
+    border-radius: 8px;
+    color: #000; /* black text inside */
+}
 
-        ul {
-            list-style: none;
-            padding: 0;
-        }
+/* ----------------- Our Services ----------------- */
+section.services ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: inline-block;
+}
 
-        ul li {
-            padding: 10px 0;
-            border-bottom: 1px solid #ddd;
-        }
+section.services ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    font-weight: 600;
+}
 
-        /* Before & After Gallery */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 25px;
-        }
+/* ----------------- Headings ----------------- */
+h2 {
+    margin-bottom: 15px;
+    text-align: center;
+}
 
-        .photo-set {
-            border: 1px solid #ddd;
-            padding: 15px;
-            border-radius: 6px;
-            background: #fafafa;
-            text-align: center;
-        }
+/* ----------------- Masonry Gallery ----------------- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    grid-auto-rows: auto;
+    grid-auto-flow: dense;
+}
 
-        .photo-set p {
-            font-weight: bold;
-            margin: 8px 0 5px;
-        }
+/* ----------------- Photo Set ----------------- */
+.photo-set {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    display: inline-block;
+    color: #000;
+}
 
-        .photo-set img {
-            width: 100%;
-            border-radius: 5px;
-        }
+/* Before/After side by side, centered */
+.photo-set.images-horizontal {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: flex-start;
+}
 
-        .cta {
-            background: #2c2c2c;
-            color: #fff;
-            text-align: center;
-            padding: 30px 20px;
-        }
+.photo-set.images-horizontal > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-        .cta a {
-            color: #fff;
-            background: #b89b5e;
-            padding: 12px 25px;
-            text-decoration: none;
-            font-size: 1.1em;
-            border-radius: 5px;
-            display: inline-block;
-            margin-top: 15px;
-        }
+.photo-set.images-horizontal img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
 
-        footer {
-            background: #111;
-            color: #fff;
-            text-align: center;
-            padding: 15px;
-            font-size: 0.9em;
-        }
-    </style>
+/* Steps images centered */
+.photo-set.steps {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-set.steps img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Text inside photo boxes */
+.photo-set p {
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/* ----------------- Footer & CTA ----------------- */
+.cta {
+    background: rgba(44,44,44,0.9);
+    color: #fff;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.cta a {
+    color: #fff;
+    background: #b89b5e;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-size: 1.1em;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+footer {
+    background: #111;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9em;
+}
+
+/* ----------------- Responsive ----------------- */
+@media (max-width: 900px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+    .photo-set.images-horizontal > div {
+        width: 49%;
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    .photo-set.images-horizontal {
+        flex-direction: column;
+    }
+    .photo-set.images-horizontal > div {
+        width: 100%;
+    }
+}
+</style>
 </head>
 <body>
 
 <header>
-    <h1>Roc's Stone Repair & Restoration</h1>
-    <p>Granite, Marble, Quartz & Natural Stone Restoration</p>
+    <img src="images1/logo.webp" alt="Logo" class="logo">
+    <p class="tagline">Granite, Marble, Quartz & Natural Stone</p>
 </header>
 
-<section>
+<section class="services">
     <h2>Our Services</h2>
     <ul>
         <li>Granite Repair & Polishing</li>
@@ -123,69 +210,91 @@
         <li>Stone Cleaning & Sealing</li>
         <li>Countertops, Floors & Showers</li>
     </ul>
+</section>
 
-    <div class="gallery">
+<section>
+    <div class="gallery-grid">
 
-        <div class="photo-set">
-            <p>Before</p>
-            <img src="images1/before1.webp" alt="Stone repair before">
-            <p>After</p>
-            <img src="images1/after1.webp" alt="Stone repair after">
+        <div class="photo-set images-horizontal">
+            <div>
+                <p>Before</p>
+                <img src="images1/before1.webp" alt="Stone repair before">
+            </div>
+            <div>
+                <p>After</p>
+                <img src="images1/after1.webp" alt="Stone repair after">
+            </div>
         </div>
 
-        <div class="photo-set">
-            <p>Before</p>
-            <img src="images1/before2.webp" alt="Stone repair before">
-            <p>After</p>
-            <img src="images1/after2.webp" alt="Stone repair after">
+        <div class="photo-set images-horizontal">
+            <div>
+                <p>Before</p>
+                <img src="images1/before2.webp" alt="Stone repair before">
+            </div>
+            <div>
+                <p>After</p>
+                <img src="images1/after2.webp" alt="Stone repair after">
+            </div>
         </div>
 
-        <div class="photo-set">
-            <p>Before</p>
-            <img src="images1/before3.webp" alt="Stone repair before">
-            <p>After</p>
-            <img src="images1/after3.webp" alt="Stone repair after">
+        <div class="photo-set images-horizontal">
+            <div>
+                <p>Before</p>
+                <img src="images1/before3.webp" alt="Stone repair before">
+            </div>
+            <div>
+                <p>After</p>
+                <img src="images1/after3.webp" alt="Stone repair after">
+            </div>
         </div>
 
-        <div class="photo-set">
-            <p>Before</p>
-            <img src="images1/before4.webp" alt="Stone repair before">
-            <p>After</p>
-            <img src="images1/after4.webp" alt="Stone repair after">
+        <div class="photo-set images-horizontal">
+            <div>
+                <p>Before</p>
+                <img src="images1/before4.webp" alt="Stone repair before">
+            </div>
+            <div>
+                <p>After</p>
+                <img src="images1/after4.webp" alt="Stone repair after">
+            </div>
         </div>
 
-        <div class="photo-set">
-            <p>Before</p>
-            <img src="images1/before5.webp" alt="Stone repair before">
-            <p>After</p>
-            <img src="images1/after5.webp" alt="Stone repair after">
+        <!-- Steps images -->
+        <div class="photo-set steps">
+            <p>Custom Work</p>
+            <img src="images1/steps.webp" alt="Stone repair steps">
         </div>
 
-   	<div class="photo-set">
-            <p>Before</p>
-            <img src="images1/before6.webp" alt="Stone repair before">
-            <p>After</p>
-            <img src="images1/after6.webp" alt="Stone repair after">
+        <div class="photo-set steps">
+            <p>Custom Work</p>
+            <img src="images1/steps2.webp" alt="Stone repair steps 2">
+        </div>
+
+        <div class="photo-set images-horizontal">
+            <div>
+                <p>Before</p>
+                <img src="images1/before5.webp" alt="Stone repair before">
+            </div>
+            <div>
+                <p>After</p>
+                <img src="images1/after5.webp" alt="Stone repair after">
+            </div>
+        </div>
+
+        <div class="photo-set images-horizontal">
+            <div>
+                <p>Before</p>
+                <img src="images1/before6.webp" alt="Stone repair before">
+            </div>
+            <div>
+                <p>After</p>
+                <img src="images1/after6.webp" alt="Stone repair after">
+            </div>
         </div>
 
     </div>
 </section>
 
-<section>
-    <h2>Contact</h2>
-    <p><strong>Phone:</strong> (608) 397-5412</p>
-    <p><strong>Email:</strong> rocsrestoration@email.com</p>
-    <p><strong>Service Area:</strong> Chester and Montgomery County</p>
-</section>
-
-<section>
-    <h2>About Us</h2>
-    <p>
-        Roc's Stone Repair & Restoration specializes in bringing damaged and worn stone
-        surfaces back to life. With professional techniques and attention to detail,
-        we restore the natural beauty of granite, marble, and other natural stone.
-    </p>
-</section>
 <div class="cta">
     <h2>Get a Free Estimate</h2>
     <p>Call or email today to schedule your stone repair service.</p>
