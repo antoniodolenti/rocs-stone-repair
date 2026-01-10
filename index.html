@@ -52,6 +52,44 @@ header .tagline {
     font-weight: 600;
 }
 
+
+/* Header CTA (higher position) */
+.header-cta {
+    position: absolute;
+    right: 200px;
+    top: 25%; /* moved up from 50% to 25% */
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.header-cta h3 {
+    margin: 0 0 6px 0;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.header-cta a {
+    display: inline-block;
+    background: #b89b5e;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Mobile: stack below logo */
+@media (max-width: 700px) {
+    .header-cta {
+        position: static;
+        transform: none;
+        margin-top: 15px;
+    }
+}
+
+
+
+
 /* ----------------- Sections ----------------- */
 section {
     padding: 40px 20px;
@@ -60,6 +98,10 @@ section {
     background: #fff; /* white section */
     border-radius: 8px;
     color: #000; /* black text inside */
+}
+
+section.services {
+    text-align: center; /* <-- ONLY ADDITION */
 }
 
 /* ----------------- Our Services ----------------- */
@@ -199,7 +241,13 @@ footer {
 <header>
     <img src="images1/logo.webp" alt="Logo" class="logo">
     <p class="tagline">Granite, Marble, Quartz & Natural Stone</p>
+
+    <div class="header-cta">
+        <h3>Get a Free Estimate</h3>
+        <a href="tel:16083975412">Call Now</a>
+    </div>
 </header>
+
 
 <section class="services">
     <h2>Our Services</h2>
